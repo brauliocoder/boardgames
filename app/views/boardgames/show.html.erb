@@ -1,23 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<h1>
+  <strong>Name:</strong>
+  <%= @boardgame.name %>
+</h1>
+
 <h3>Board</h3>
 <%= image_tag @boardgame.board.variant(resize: "300x300").processed %>
-<%= link_to "download", rails_blob_path(@boardgame.board, disposition: "attachment") %>
+<%= link_to "Download", rails_blob_path(@boardgame.board, disposition: "attachment") %>
 
 <h3>Game Images</h3>
 <% @boardgame.pictures.each do |pic| %>
   <div>
     <%= image_tag pic.variant(resize: "100x100").processed %>
-    <%= link_to "download", rails_blob_path(pic, disposition: "attachment") %>
+    <%= link_to "Download", rails_blob_path(pic, disposition: "attachment") %>
   </div>
 <% end %>
 
 <h3>Rules</h3>
-
-<p>
-  <strong>Name:</strong>
-  <%= @boardgame.name %>
-</p>
+  <%= link_to "Download Rules", rails_blob_path(@boardgame.instruction, disposition: "attachment") %>
 
 <p>
   <strong>Rules:</strong>
