@@ -6,13 +6,13 @@
 </h1>
 
 <h3>Board</h3>
-<%= image_tag @boardgame.board.variant(resize: "300x300").processed %>
+<%= image_tag @boardgame.board.variant(resize: "100x100", colorspace: "Gray").processed %>
 <%= link_to "Download", rails_blob_path(@boardgame.board, disposition: "attachment") %>
 
 <h3>Game Images</h3>
 <% @boardgame.pictures.each do |pic| %>
   <div>
-    <%= image_tag pic.variant(resize: "100x100").processed %>
+    <%= image_tag pic.variant(resize: "100x100", colorspace: "Gray").processed %>
     <%= link_to "Download", rails_blob_path(pic, disposition: "attachment") %>
   </div>
 <% end %>

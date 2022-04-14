@@ -15,7 +15,7 @@
   <tbody>
     <% @boardgames.each do |boardgame| %>
       <tr>
-        <td><%= image_tag boardgame.board.variant(resize: "100x100").processed %></td>
+        <td><%= image_tag boardgame.board.variant(resize: "100x100", colorspace: "Gray").processed %></td>
         <td><%= boardgame.name %></td>
         <td><%= boardgame.rules %></td>
         <td><%= link_to 'Show', boardgame %></td>
