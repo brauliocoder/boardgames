@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Boardgames</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Board</th>
+      <th>Name</th>
+      <th>Rules</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boardgames.each do |boardgame| %>
+      <tr>
+        <td><%= image_tag boardgame.board.variant(resize: "100x100").processed %></td>
+        <td><%= boardgame.name %></td>
+        <td><%= boardgame.rules %></td>
+        <td><%= link_to 'Show', boardgame %></td>
+        <td><%= link_to 'Edit', edit_boardgame_path(boardgame) %></td>
+        <td><%= link_to 'Destroy', boardgame, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Boardgame', new_boardgame_path %>
